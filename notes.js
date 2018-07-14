@@ -53,8 +53,15 @@ let removeNote = title => {
     return notes.length !== filteredNotes.length
 }
 
+let removeAll = () => {
+    let notes = fetchNotes()
+    while (notes.length > 0) {
+        notes.shift()
+    }
+    saveNotes(notes)
+}
+
 let logNote = note => {
-    debugger
     console.log('-'.repeat(64))
     console.log('\n')
     console.log(`Title: ${note.title}`)
@@ -67,5 +74,6 @@ module.exports = {
     getAll,
     getNote,
     removeNote,
+    removeAll,
     logNote
 }
